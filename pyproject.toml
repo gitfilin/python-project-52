@@ -1,0 +1,30 @@
+[project]
+name = "hexlet-code"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "dj-database-url>=3.1.2",
+    "django>=6.0.6",
+    "gunicorn>=26.0.0",
+    "python-dotenv>=1.2.2",
+    "whitenoise>=6.12.0",
+]
+
+[dependency-groups]
+dev = [
+      "ruff>=0.15.20",
+]
+
+[tool.ruff]
+line-length = 120
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+ignore = ["E501"]
+
+[tool.ruff.lint.per-file-ignores]
+"migrations/*.py" = ["ALL"]
+"task_manager/settings.py" = ["ALL"]

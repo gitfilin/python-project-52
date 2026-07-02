@@ -1,0 +1,4 @@
+.env
+staticfiles/
+db.sqlite3
+.python-version
