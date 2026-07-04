@@ -2,8 +2,8 @@
 {% load i18n %}
 
 {% block content %}
-    <div style="max-width: 400px; margin: 0 auto;">
-        <h1 class="text-center">{% trans "Вход" %}</h1>
+    <h1>{% trans "Изменение метки" %}</h1>
+    <div style="max-width: 500px;">
         <form method="post">
             {% csrf_token %}
             {% for field in form %}
@@ -14,7 +14,7 @@
                     {% if field.errors %}<div class="invalid-feedback">{{ field.errors|join:", " }}</div>{% endif %}
                 </div>
             {% endfor %}
-            <button type="submit" class="btn btn-primary">{% trans "Войти" %}</button>
+            <button type="submit" class="btn btn-primary">{% trans "Изменить" %}</button>
         </form>
     </div>
 {% endblock %}

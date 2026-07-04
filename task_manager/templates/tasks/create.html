@@ -2,19 +2,19 @@
 {% load i18n %}
 
 {% block content %}
-    <div style="max-width: 400px; margin: 0 auto;">
-        <h1 class="text-center">{% trans "Вход" %}</h1>
+    <h1>{% trans "Создать задачу" %}</h1>
+    <div style="max-width: 800px;">
         <form method="post">
             {% csrf_token %}
             {% for field in form %}
-                <div class="form-group">
+                <div class="form-group {% if field.errors %}field-invalid{% elif form.is_bound %}field-valid{% endif %}">
                     <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
                     {{ field }}
                     {% if field.help_text %}<span class="form-text">{{ field.help_text }}</span>{% endif %}
                     {% if field.errors %}<div class="invalid-feedback">{{ field.errors|join:", " }}</div>{% endif %}
                 </div>
             {% endfor %}
-            <button type="submit" class="btn btn-primary">{% trans "Войти" %}</button>
+            <button type="submit" class="btn btn-primary">{% trans "Создать" %}</button>
         </form>
     </div>
 {% endblock %}

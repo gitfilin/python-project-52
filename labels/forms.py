@@ -1,11 +1,11 @@
 from django import forms
 
-from .models import Status
+from .models import Label
 
 
-class StatusForm(forms.ModelForm):
+class LabelForm(forms.ModelForm):
     class Meta:
-        model = Status
+        model = Label
         fields = ['name']
         labels = {'name': 'Имя'}
         widgets = {

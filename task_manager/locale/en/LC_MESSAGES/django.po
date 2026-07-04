@@ -39,6 +39,24 @@ msgstr "A simple service for managing tasks, statuses and labels."
 msgid "Начать"
 msgstr "Get started"
 
+msgid "Привет от Хекслета!"
+msgstr "Hello from Hexlet!"
+
+msgid "Практический курс по программированию"
+msgstr "Practical programming course"
+
+msgid "Узнать больше"
+msgstr "Learn more"
+
+msgid "Ваш пароль должен содержать как минимум 3 символа."
+msgstr "Your password must contain at least 3 characters."
+
+msgid "Для подтверждения введите, пожалуйста, пароль ещё раз."
+msgstr "Please enter the password again to confirm."
+
+msgid "Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_."
+msgstr "Required field. No more than 150 characters. Only letters, digits and characters @/./+/-/_."
+
 msgid "Имя"
 msgstr "First name"
 
@@ -122,6 +140,91 @@ msgstr "Status successfully updated"
 
 msgid "Статус успешно удален"
 msgstr "Status successfully deleted"
+
+msgid "Невозможно удалить статус, потому что он используется"
+msgstr "Cannot delete status because it is in use"
+
+msgid "Невозможно удалить пользователя, так как он связан с задачами"
+msgstr "Cannot delete user because it is linked to tasks"
+
+msgid "Задачи"
+msgstr "Tasks"
+
+msgid "Создать задачу"
+msgstr "Create task"
+
+msgid "Показать"
+msgstr "Show"
+
+msgid "Описание"
+msgstr "Description"
+
+msgid "Статус"
+msgstr "Status"
+
+msgid "Исполнитель"
+msgstr "Executor"
+
+msgid "Автор"
+msgstr "Author"
+
+msgid "Задача успешно создана"
+msgstr "Task successfully created"
+
+msgid "Задача успешно изменена"
+msgstr "Task successfully updated"
+
+msgid "Задача успешно удалена"
+msgstr "Task successfully deleted"
+
+msgid "Только свои задачи"
+msgstr "Only my tasks"
+
+msgid "Показать"
+msgstr "Show"
+
+msgid "Задачу может удалить только ее автор"
+msgstr "Only the author can delete the task"
+
+msgid "Метки"
+msgstr "Labels"
+
+msgid "Создать метку"
+msgstr "Create label"
+
+msgid "Метка успешно создана"
+msgstr "Label successfully created"
+
+msgid "Метка успешно изменена"
+msgstr "Label successfully updated"
+
+msgid "Метка успешно удалена"
+msgstr "Label successfully deleted"
+
+msgid "Невозможно удалить метку, потому что она используется"
+msgstr "Cannot delete label because it is in use"
+
+msgid "Меток пока нет."
+msgstr "No labels yet."
+
+msgid "Изменение метки"
+msgstr "Edit label"
+
+msgid "Удаление метки"
+msgstr "Delete label"
+
+msgid "Задач пока нет."
+msgstr "No tasks yet."
+
+msgid "Изменение задачи"
+msgstr "Edit task"
+
+msgid "Удаление задачи"
+msgstr "Delete task"
+
+#, python-format, python-brace-format
+msgid "Вы уверены, что хотите удалить \"%(name)s\"?"
+msgstr "Are you sure you want to delete \"%(name)s\"?"
 
 msgid "Да, удалить"
 msgstr "Yes, delete"

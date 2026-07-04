@@ -2,17 +2,17 @@
 {% load i18n %}
 
 {% block content %}
-    <h1>{% trans "Удаление пользователя" %}</h1>
+    <h1>{% trans "Удаление задачи" %}</h1>
     <div style="max-width: 500px;">
         <form method="post">
             {% csrf_token %}
             <p class="mb-3">
-                {% blocktrans with username=object.username %}
-                    Вы уверены, что хотите удалить "{{ username }}"?
+                {% blocktrans with name=object.name %}
+                    Вы уверены, что хотите удалить "{{ name }}"?
                 {% endblocktrans %}
             </p>
             <button type="submit" class="btn btn-danger">{% trans "Да, удалить" %}</button>
-            <a href="{% url 'users_list' %}" class="btn btn-outline-secondary">{% trans "Отмена" %}</a>
+            <a href="{% url 'tasks_list' %}" class="btn btn-outline-secondary">{% trans "Отмена" %}</a>
         </form>
     </div>
 {% endblock %}

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+    <h1>{{ task.name }}</h1>
+    <div style="max-width: 700px;">
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <th scope="row" class="w-25">ID</th>
+                    <td>{{ task.pk }}</td>
+                </tr>
+                <tr>
+                    <th scope="row" class="w-25">{% trans "Имя" %}</th>
+                    <td>{{ task.name }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">{% trans "Описание" %}</th>
+                    <td>{{ task.description|linebreaksbr|default:"—" }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">{% trans "Статус" %}</th>
+                    <td>{{ task.status }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">{% trans "Автор" %}</th>
+                    <td>{{ task.author.get_full_name|default:task.author.username }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">{% trans "Исполнитель" %}</th>
+                    <td>
+                        {% if task.executor %}
+                            {{ task.executor.get_full_name|default:task.executor.username }}
+                        {% else %}
+                            —
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">{% trans "Метки" %}</th>
+                    <td>
+                        {% for label in task.labels.all %}
+                            {{ label.name }}{% if not forloop.last %}, {% endif %}
+                        {% empty %}
+                            —
+                        {% endfor %}
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">{% trans "Дата создания" %}</th>
+                    <td>{{ task.created_at|date:"Y-m-d H:i" }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <a href="{% url 'tasks_update' task.pk %}" class="btn btn-outline-primary me-1">{% trans "Изменить" %}</a>
+        <a href="{% url 'tasks_delete' task.pk %}" class="btn btn-outline-danger">{% trans "Удалить" %}</a>
+        <a href="{% url 'tasks_list' %}" class="btn btn-outline-secondary">{% trans "Отмена" %}</a>
+    </div>
+{% endblock %}

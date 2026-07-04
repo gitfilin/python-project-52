@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import views as auth_views
 from django.contrib.auth.models import User
 from django.contrib.messages.views import SuccessMessageMixin
+from django.db.models import ProtectedError
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
 from django.utils.translation import gettext_lazy as _
@@ -54,6 +55,13 @@ class UserDeleteView(SuccessMessageMixin, DeleteView):
             messages.error(request, _('У вас нет прав для изменения'))
             return redirect('users_list')
         return super().dispatch(request, *args, **kwargs)
+
+    def form_valid(self, form):
+        try:
+            return super().form_valid(form)
+        except ProtectedError:
+            messages.error(self.request, _('Невозможно удалить пользователя, так как он связан с задачами'))
+            return redirect('users_list')
 
 
 class UserLoginView(SuccessMessageMixin, auth_views.LoginView):

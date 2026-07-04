@@ -12,7 +12,9 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 import os
 from pathlib import Path
+
 import dj_database_url
+import rollbar
 from dotenv import load_dotenv
 
 
@@ -43,8 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_bootstrap5',
+    'django_filters',
     'users',
     'statuses',
+    'labels',
+    'tasks',
 ]
 
 MIDDLEWARE = [
@@ -58,6 +63,22 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+ROLLBAR_ACCESS_TOKEN = os.getenv('ROLLBAR_ACCESS_TOKEN')
+ROLLBAR_ENVIRONMENT = os.getenv('ROLLBAR_ENVIRONMENT', 'development')
+
+if ROLLBAR_ACCESS_TOKEN:
+    MIDDLEWARE = [
+        'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+        *MIDDLEWARE,
+    ]
+    ROLLBAR = {
+        'access_token': ROLLBAR_ACCESS_TOKEN,
+        'environment': ROLLBAR_ENVIRONMENT,
+        'branch': 'main',
+        'root': str(BASE_DIR),
+    }
+    rollbar.init(**ROLLBAR)
 
 ROOT_URLCONF = 'task_manager.urls'
 
@@ -133,4 +154,11 @@ LOGOUT_REDIRECT_URL = '/'
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATICFILES_DIRS = [BASE_DIR / 'task_manager' / 'static']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+from django.contrib.messages import constants as message_constants
+
+MESSAGE_TAGS = {
+    message_constants.ERROR: 'danger',
+}

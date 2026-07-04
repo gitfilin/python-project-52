@@ -8,12 +8,14 @@ class UserRegistrationForm(forms.ModelForm):
     password = forms.CharField(
         label=_('Пароль'),
         strip=False,
-        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'placeholder': 'Пароль'}),
+        help_text=_('Ваш пароль должен содержать как минимум 3 символа.'),
     )
     password_confirmation = forms.CharField(
         label=_('Подтверждение пароля'),
         strip=False,
-        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'placeholder': 'Подтверждение пароля'}),
+        help_text=_('Для подтверждения введите, пожалуйста, пароль ещё раз.'),
     )
 
     class Meta:
@@ -23,6 +25,14 @@ class UserRegistrationForm(forms.ModelForm):
             'first_name': _('Имя'),
             'last_name': _('Фамилия'),
             'username': _('Имя пользователя'),
+        }
+        help_texts = {
+            'username': _('Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.'),
+        }
+        widgets = {
+            'first_name': forms.TextInput(attrs={'placeholder': 'Имя'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Фамилия'}),
+            'username': forms.TextInput(attrs={'placeholder': 'Имя пользователя'}),
         }
 
     def clean_password(self):
@@ -52,13 +62,15 @@ class UserUpdateForm(forms.ModelForm):
         label=_('Пароль'),
         strip=False,
         required=False,
-        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'placeholder': 'Пароль'}),
+        help_text=_('Ваш пароль должен содержать как минимум 3 символа.'),
     )
     password_confirmation = forms.CharField(
         label=_('Подтверждение пароля'),
         strip=False,
         required=False,
-        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password'}),
+        widget=forms.PasswordInput(attrs={'autocomplete': 'new-password', 'placeholder': 'Подтверждение пароля'}),
+        help_text=_('Для подтверждения введите, пожалуйста, пароль ещё раз.'),
     )
 
     class Meta:
@@ -68,6 +80,14 @@ class UserUpdateForm(forms.ModelForm):
             'first_name': _('Имя'),
             'last_name': _('Фамилия'),
             'username': _('Имя пользователя'),
+        }
+        help_texts = {
+            'username': _('Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.'),
+        }
+        widgets = {
+            'first_name': forms.TextInput(attrs={'placeholder': 'Имя'}),
+            'last_name': forms.TextInput(attrs={'placeholder': 'Фамилия'}),
+            'username': forms.TextInput(attrs={'placeholder': 'Имя пользователя'}),
         }
 
     def clean_password(self):
