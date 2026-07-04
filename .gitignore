@@ -29,10 +29,6 @@ env/
 .pytest_cache/
 .tox/
 
-# Tools
-.ruff_cache/
-.kombai/
-
 # OS
 .DS_Store
 Thumbs.db
