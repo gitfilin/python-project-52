@@ -36,7 +36,7 @@ https://task-manager-hexlet-ay86.onrender.com/
 ## Технологии
 
 * Python 3.14
-* Django
+* Django 6.06
 * django-filter
 * django-bootstrap5
 * Bootstrap 5
