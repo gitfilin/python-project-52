@@ -2,3 +2,5 @@
 staticfiles/
 db.sqlite3
 .python-version
+.kombai
+.ruff_cache
