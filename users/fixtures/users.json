@@ -1,0 +1,32 @@
+[
+    {
+        "model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "first_name": "Ivan",
+            "last_name": "Ivanov",
+            "username": "ivanov",
+            "password": "pbkdf2_sha256$1200000$MgsqoDloAMHeAygLNaoUiB$R81jxNw4Qxxa0lZ/9gNm7Lfax3qeT86e7T8tVQDRZxQ=",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false,
+            "date_joined": "2024-01-01T10:00:00Z",
+            "last_login": null
+        }
+    },
+    {
+        "model": "auth.user",
+        "pk": 2,
+        "fields": {
+            "first_name": "Petr",
+            "last_name": "Petrov",
+            "username": "petrov",
+            "password": "pbkdf2_sha256$1200000$MgsqoDloAMHeAygLNaoUiB$R81jxNw4Qxxa0lZ/9gNm7Lfax3qeT86e7T8tVQDRZxQ=",
+            "is_active": true,
+            "is_staff": false,
+            "is_superuser": false,
+            "date_joined": "2024-01-02T10:00:00Z",
+            "last_login": null
+        }
+    }
+]

@@ -1,0 +1,26 @@
+[
+    {
+        "model": "statuses.status",
+        "pk": 1,
+        "fields": {
+            "name": "Draft",
+            "created_at": "2024-01-01T10:00:00Z"
+        }
+    },
+    {
+        "model": "statuses.status",
+        "pk": 2,
+        "fields": {
+            "name": "In progress",
+            "created_at": "2024-01-02T10:00:00Z"
+        }
+    },
+    {
+        "model": "statuses.status",
+        "pk": 3,
+        "fields": {
+            "name": "Done",
+            "created_at": "2024-01-03T10:00:00Z"
+        }
+    }
+]

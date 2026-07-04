@@ -5,13 +5,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}{% trans "Task Manager" %}{% endblock %}</title>
+    <title>{% block title %}{% trans "Менеджер задач" %}{% endblock %}</title>
     {% bootstrap_css %}
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary" aria-label="Main navigation">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">{% trans "Task Manager" %}</a>
+            <a class="navbar-brand" href="{% url 'home' %}">{% trans "Менеджер задач" %}</a>
             <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse" data-bs-target="#mainNav"
                     aria-controls="mainNav" aria-expanded="false"
@@ -21,20 +21,33 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">{% trans "Users" %}</a>
+                        <a class="nav-link" href="{% url 'users_list' %}">{% trans "Пользователи" %}</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{% trans "Login" %}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">{% trans "Register" %}</a>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'statuses_list' %}">{% trans "Статусы" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <form method="post" action="{% url 'logout' %}" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="nav-link btn btn-link">{% trans "Выход" %}</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'login' %}">{% trans "Вход" %}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'users_create' %}">{% trans "Регистрация" %}</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
         </div>
     </nav>
 
     <main class="container py-4">
+        {% bootstrap_messages %}
         {% block content %}{% endblock %}
     </main>
 

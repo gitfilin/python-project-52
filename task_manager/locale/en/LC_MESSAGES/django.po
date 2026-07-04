@@ -1,0 +1,138 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-07-04 12:00+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Менеджер задач"
+msgstr "Task Manager"
+
+msgid "Пользователи"
+msgstr "Users"
+
+msgid "Статусы"
+msgstr "Statuses"
+
+msgid "Вход"
+msgstr "Login"
+
+msgid "Регистрация"
+msgstr "Register"
+
+msgid "Выход"
+msgstr "Logout"
+
+msgid "Войти"
+msgstr "Log in"
+
+msgid "Простой сервис для управления задачами, статусами и метками."
+msgstr "A simple service for managing tasks, statuses and labels."
+
+msgid "Начать"
+msgstr "Get started"
+
+msgid "Имя"
+msgstr "First name"
+
+msgid "Фамилия"
+msgstr "Last name"
+
+msgid "Имя пользователя"
+msgstr "Username"
+
+msgid "Пароль"
+msgstr "Password"
+
+msgid "Подтверждение пароля"
+msgstr "Password confirmation"
+
+msgid "Изменение пользователя"
+msgstr "Edit user"
+
+msgid "Удаление пользователя"
+msgstr "Delete user"
+
+msgid "Дата создания"
+msgstr "Created at"
+
+msgid "Действия"
+msgstr "Actions"
+
+msgid "Изменить"
+msgstr "Edit"
+
+msgid "Удалить"
+msgstr "Delete"
+
+msgid "Зарегистрировать"
+msgstr "Register"
+
+msgid "Пользователей пока нет."
+msgstr "No users yet."
+
+msgid "Создать статус"
+msgstr "Create status"
+
+msgid "Создать"
+msgstr "Create"
+
+msgid "Статусов пока нет."
+msgstr "No statuses yet."
+
+msgid "Изменение статуса"
+msgstr "Edit status"
+
+msgid "Удаление статуса"
+msgstr "Delete status"
+
+msgid "Пользователь успешно зарегистрирован"
+msgstr "User successfully registered"
+
+msgid "Пользователь успешно изменен"
+msgstr "User successfully updated"
+
+msgid "Пользователь успешно удален"
+msgstr "User successfully deleted"
+
+msgid "Вы залогинены"
+msgstr "You are logged in"
+
+msgid "Вы разлогинены"
+msgstr "You are logged out"
+
+msgid "У вас нет прав для изменения"
+msgstr "You do not have permission to modify this user."
+
+msgid "Два поля пароля не совпадают."
+msgstr "The two password fields didn't match."
+
+msgid "Статус успешно создан"
+msgstr "Status successfully created"
+
+msgid "Статус успешно изменен"
+msgstr "Status successfully updated"
+
+msgid "Статус успешно удален"
+msgstr "Status successfully deleted"
+
+msgid "Да, удалить"
+msgstr "Yes, delete"
+
+msgid "Отмена"
+msgstr "Cancel"
+
+#, python-format, python-brace-format
+msgid "Вы уверены, что хотите удалить \"%(username)s\"?"
+msgstr "Are you sure you want to delete \"%(username)s\"?"
+
+#, python-format, python-brace-format
+msgid "Вы уверены, что хотите удалить \"%(name)s\"?"
+msgstr "Are you sure you want to delete \"%(name)s\"?"
