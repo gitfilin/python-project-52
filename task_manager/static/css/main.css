@@ -1,7 +1,6 @@
 /* Sticky footer */
 body { min-height: 100vh; display: flex; flex-direction: column; }
 main { flex: 1 0 auto; }
-footer { flex-shrink: 0; }
 
 /* Form group spacing (Bootstrap 4 compatibility) */
 .form-group { margin-bottom: 1.25rem; }
@@ -32,5 +31,5 @@ footer { flex-shrink: 0; }
     padding-right: 2.25rem;
 }
 .field-valid select { background-position: right 2rem center; }
-.field-valid select[multiple],
-.field-valid textarea { background-image: none; padding-right: 0.75rem; }
+.field-valid select[multiple] { background-image: none; padding-right: 0.75rem; }
+.field-valid textarea { background-position: right 0.75rem top 0.75rem; }

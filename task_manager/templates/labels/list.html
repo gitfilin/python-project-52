@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-    <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="d-flex justify-content-between align-items-start mb-4 flex-column gap-4">
         <h1 class="mb-0">{% trans "Метки" %}</h1>
         <a href="{% url 'labels_create' %}" class="btn btn-primary">{% trans "Создать метку" %}</a>
     </div>
@@ -12,7 +12,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">{% trans "Имя" %}</th>
                 <th scope="col">{% trans "Дата создания" %}</th>
-                <th scope="col">{% trans "Действия" %}</th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -22,8 +22,10 @@
                     <td>{{ label.name }}</td>
                     <td>{{ label.created_at|date:"Y-m-d H:i" }}</td>
                     <td>
-                        <a href="{% url 'labels_update' label.pk %}" class="btn btn-sm btn-outline-primary me-1">{% trans "Изменить" %}</a>
-                        <a href="{% url 'labels_delete' label.pk %}" class="btn btn-sm btn-outline-danger">{% trans "Удалить" %}</a>
+                        <div class="d-flex flex-column gap-1">
+                            <a href="{% url 'labels_update' label.pk %}" class="link-primary text-decoration-none">{% trans "Изменить" %}</a>
+                            <a href="{% url 'labels_delete' label.pk %}" class="link-danger text-decoration-none">{% trans "Удалить" %}</a>
+                        </div>
                     </td>
                 </tr>
             {% empty %}

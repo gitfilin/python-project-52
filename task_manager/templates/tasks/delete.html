@@ -3,7 +3,7 @@
 
 {% block content %}
     <h1>{% trans "Удаление задачи" %}</h1>
-    <div style="max-width: 500px;">
+    <div class="col-md-8 col-lg-6">
         <form method="post">
             {% csrf_token %}
             <p class="mb-3">
@@ -12,7 +12,7 @@
                 {% endblocktrans %}
             </p>
             <button type="submit" class="btn btn-danger">{% trans "Да, удалить" %}</button>
-            <a href="{% url 'tasks_list' %}" class="btn btn-outline-secondary">{% trans "Отмена" %}</a>
+            <a href="{% url 'tasks:list' %}" class="btn btn-outline-secondary">{% trans "Отмена" %}</a>
         </form>
     </div>
 {% endblock %}
