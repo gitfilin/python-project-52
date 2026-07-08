@@ -10,6 +10,13 @@
     </div>
     <div class="card-body">
         <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th scope="col">{% trans "Параметр" %}</th>
+                    <th scope="col">{% trans "Значение" %}</th>
+                </tr>
+            </thead>
+            <tbody>
             <tr>
                 <td colspan="2">{{ task.description|linebreaksbr|default:"—" }}</td>
             </tr>
@@ -50,6 +57,7 @@
                     </ul>
                 </td>
             </tr>
+            </tbody>
         </table>
 
         <a href="{% url 'tasks:update' task.pk %}">{% trans "Изменить" %}</a>

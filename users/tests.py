@@ -1,11 +1,14 @@
+import os
+
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
 from .forms import UserRegistrationForm
 
-TEST_PASSWORD = 'Str0ngPass!1'
-TEST_LOGIN_PASSWORD = 'testpass123'
+TEST_PASSWORD = os.getenv('TEST_PASSWORD', 'Str0ngPass!1')
+TEST_LOGIN_PASSWORD = os.getenv('TEST_LOGIN_PASSWORD', 'testpass123')
+TEST_WRONG_PASSWORD = os.getenv('TEST_WRONG_PASSWORD', 'DifferentPass!1')
 
 
 class UserListViewTest(TestCase):
@@ -58,7 +61,7 @@ class UserCreateViewTest(TestCase):
             'last_name': 'Y',
             'username': 'xyuser',
             'password': TEST_PASSWORD,
-            'password_confirmation': 'DifferentPass!1',
+            'password_confirmation': TEST_WRONG_PASSWORD,
         }
         response = self.client.post(reverse('users_create'), data)
         self.assertEqual(response.status_code, 200)
