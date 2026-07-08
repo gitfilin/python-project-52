@@ -4,6 +4,9 @@ from django.urls import reverse
 
 from .forms import UserRegistrationForm
 
+TEST_PASSWORD = 'Str0ngPass!1'
+TEST_LOGIN_PASSWORD = 'testpass123'
+
 
 class UserListViewTest(TestCase):
     fixtures = ['users.json']
@@ -29,21 +32,21 @@ class UserCreateViewTest(TestCase):
             'first_name': 'Sidor',
             'last_name': 'Sidorov',
             'username': 'sidorov',
-            'password': 'Str0ngPass!1',
-            'password_confirmation': 'Str0ngPass!1',
+            'password': TEST_PASSWORD,
+            'password_confirmation': TEST_PASSWORD,
         }
         response = self.client.post(reverse('users_create'), data)
         self.assertRedirects(response, reverse('login'))
         self.assertTrue(User.objects.filter(username='sidorov').exists())
 
     def test_create_duplicate_username_shows_error(self):
-        User.objects.create_user(username='dup', password='Str0ngPass!1')
+        User.objects.create_user(username='dup', password=TEST_PASSWORD)
         data = {
             'first_name': 'Dup',
             'last_name': 'Dup',
             'username': 'dup',
-            'password': 'Str0ngPass!1',
-            'password_confirmation': 'Str0ngPass!1',
+            'password': TEST_PASSWORD,
+            'password_confirmation': TEST_PASSWORD,
         }
         response = self.client.post(reverse('users_create'), data)
         self.assertEqual(response.status_code, 200)
@@ -54,7 +57,7 @@ class UserCreateViewTest(TestCase):
             'first_name': 'X',
             'last_name': 'Y',
             'username': 'xyuser',
-            'password': 'Str0ngPass!1',
+            'password': TEST_PASSWORD,
             'password_confirmation': 'DifferentPass!1',
         }
         response = self.client.post(reverse('users_create'), data)
@@ -123,7 +126,7 @@ class AuthViewTest(TestCase):
     def test_login_redirects_to_home(self):
         response = self.client.post(reverse('login'), {
             'username': 'ivanov',
-            'password': 'testpass123',
+            'password': TEST_LOGIN_PASSWORD,
         })
         self.assertRedirects(response, reverse('home'))
 
