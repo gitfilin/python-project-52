@@ -6,9 +6,9 @@ from django.urls import reverse
 
 from .forms import UserRegistrationForm
 
-TEST_PASSWORD = os.getenv('TEST_PASSWORD', 'Str0ngPass!1')
-TEST_LOGIN_PASSWORD = os.getenv('TEST_LOGIN_PASSWORD', 'testpass123')
-TEST_WRONG_PASSWORD = os.getenv('TEST_WRONG_PASSWORD', 'DifferentPass!1')
+TEST_PASSWORD = os.getenv('TEST_PASSWORD')
+TEST_LOGIN_PASSWORD = os.getenv('TEST_LOGIN_PASSWORD')
+TEST_WRONG_PASSWORD = os.getenv('TEST_WRONG_PASSWORD')
 
 
 class UserListViewTest(TestCase):

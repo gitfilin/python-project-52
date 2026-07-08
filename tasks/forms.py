@@ -10,7 +10,7 @@ class UserModelChoiceField(forms.ModelChoiceField):
 
 
 class TaskForm(forms.ModelForm):
-    executor = UserModelChoiceField(queryset=User.objects.all(), label='Исполнитель')
+    executor = UserModelChoiceField(queryset=User.objects.all(), required=False, label='Исполнитель')
 
     class Meta:
         model = Task
