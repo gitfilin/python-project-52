@@ -1,13 +1,8 @@
-{% load i18n %}
+{% load i18n django_bootstrap5 %}
 <form method="post">
     {% csrf_token %}
     {% for field in form %}
-        <div class="form-group {% if field.errors %}field-invalid{% elif form.is_bound %}field-valid{% endif %}">
-            <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
-            {{ field }}
-            {% if field.help_text %}<span class="form-text">{{ field.help_text }}</span>{% endif %}
-            {% if field.errors %}<div class="invalid-feedback d-block">{{ field.errors|join:", " }}</div>{% endif %}
-        </div>
+        {% bootstrap_field field show_label='above' %}
     {% endfor %}
     <button type="submit" class="btn btn-primary">{{ button_text }}</button>
 </form>
