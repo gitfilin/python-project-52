@@ -27,9 +27,7 @@ jobs:
           DEBUG: 'False'
       - name: Run test coverage
         run: |
-          uv run coverage run --source=users,statuses,labels,tasks,task_manager manage.py test --verbosity 2 2>&1 || true
-          uv run coverage xml
-          uv run coverage report
+          make test-coverage
         env:
           SECRET_KEY: test-secret-key
           DEBUG: 'False'
