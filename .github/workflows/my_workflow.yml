@@ -19,6 +19,12 @@ jobs:
         run: |
           pip install uv
           make install
+      - name: Collect static files
+        run: |
+          make collectstatic
+        env:
+          SECRET_KEY: test-secret-key
+          DEBUG: 'False'
       - name: Run test coverage
         run: |
           make test-coverage
