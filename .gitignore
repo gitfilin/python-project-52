@@ -23,6 +23,7 @@ env/
 
 # Testing
 .coverage
+coverage.xml
 .pytest_cache/
 .tox/
 
