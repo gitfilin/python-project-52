@@ -122,21 +122,26 @@ class UserDeleteViewTest(TestCase):
 
 
 class AuthViewTest(TestCase):
-    fixtures = ['users.json']
+
+    def setUp(self):
+        self.user = User.objects.create_user(
+            username='ivanov', 
+            password=TEST_PASSWORD,
+            first_name='Ivan',
+            last_name='Ivanov'
+        )
 
     def test_login_redirects_to_home(self):
         response = self.client.post(reverse('login'), {
             'username': 'ivanov',
-            'password': TEST_LOGIN_PASSWORD,
+            'password': TEST_PASSWORD,
         })
         self.assertRedirects(response, reverse('home'))
 
     def test_logout_redirects_to_home(self):
-        user = User.objects.get(pk=1)
-        self.client.force_login(user)
+        self.client.force_login(self.user)
         response = self.client.post(reverse('logout'))
         self.assertRedirects(response, reverse('home'))
-
 
 class UserRegistrationFormTest(TestCase):
     def test_form_fields_labels(self):
