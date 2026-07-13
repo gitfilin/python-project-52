@@ -1,14 +1,12 @@
-import os
-
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 
 from .forms import UserRegistrationForm
 
-TEST_PASSWORD = os.getenv('TEST_PASSWORD')
-TEST_LOGIN_PASSWORD = os.getenv('TEST_LOGIN_PASSWORD')
-TEST_WRONG_PASSWORD = os.getenv('TEST_WRONG_PASSWORD')
+TEST_PASSWORD = "test_strong_pwd_123"
+TEST_LOGIN_PASSWORD = "test_login_pwd_456"
+TEST_WRONG_PASSWORD = "wrong_pwd_mismatch"
 
 
 class UserListViewTest(TestCase):
